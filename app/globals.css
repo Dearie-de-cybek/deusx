@@ -23,4 +23,30 @@
   .hero-glow {
     background: radial-gradient(50% 50% at 50% 50%, rgba(0, 209, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
   }
+
+  .animate-gradient-text {
+    background: linear-gradient(
+      to right,
+      #0055FF,
+      #BD00FF,
+      #00D1FF,
+      #0055FF
+    );
+    background-size: 300% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-transparent: true;
+    color: transparent;
+    animation: gradient-flow 6s linear infinite;
+  }
+
+  @keyframes gradient-flow {
+    0% { background-position: 0% center; }
+    100% { background-position: 300% center; }
+  }
+
+  /* Smooth blending for section transitions */
+  .section-mask {
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  }
 }

@@ -1,5 +1,6 @@
 import Navbar from "../app/components/layout/Navbar";
 import Hero from "../app/components/sections/Hero";
+import Quote from "./components/sections/Quote";
 import Services from "./components/sections/Services";
 
 export default function Home() {
@@ -8,6 +9,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Services />
+      <Quote />
       {/* Future sections (Work, Services) go here */}
       <div className="h-screen" /> {/* Spacer for scroll testing */}
     </main>
