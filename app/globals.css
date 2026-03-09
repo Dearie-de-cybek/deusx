@@ -16,7 +16,7 @@
 
 @layer utilities {
   .text-gradient-premium {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#0055FF] to-[#BD00FF];
+    @apply bg-clip-text text-transparent bg-linear-to-r from-[#0055FF] to-[#BD00FF];
   }
   
   /* The subtle glow behind the phone in your screenshot */
