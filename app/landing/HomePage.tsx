@@ -6,8 +6,7 @@ import { motion } from "framer-motion";
 import { 
   ArrowUpRight, 
   Shield, 
-   ShieldCheck,
- 
+  ShieldCheck,
   Zap, 
   Cpu,
   Terminal, 
