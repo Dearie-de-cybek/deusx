@@ -2,122 +2,211 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "../../lib/utils";
 
 const navLinks = [
-  { name: "Services", hasDropdown: false },
-  { name: "Features", hasDropdown: false },
-  { name: "Company", hasDropdown: false },
-  { name: "Pricing", hasDropdown: false },
-  { name: "Help", hasDropdown: false },
+  { name: "Services", href: "/services", hasDropdown: false },
+  { name: "Features", href: "/features", hasDropdown: false },
+  { name: "Company", href: "/company", hasDropdown: false },
+  { name: "Pricing", href: "/pricing", hasDropdown: false },
+  { name: "Help", href: "/help", hasDropdown: false },
 ];
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // 1. Scroll Detection Logic
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 40) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 32);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 transition-all duration-500">
-      <div
-        className={cn(
-          "flex items-center justify-between transition-all duration-500 ease-in-out px-6 md:px-10",
-          // Glass Mode Styles
-          isScrolled
-            ? "w-[92%] max-w-275 h-16 rounded-3xl bg-white/65 backdrop-blur-md border border-gray-200/50 shadow-[0_8px_32px_rgba(0,0,0,0.04)]"
-            : "w-full max-w-300 h-20 rounded-none bg-transparent border-transparent shadow-none"
-        )}
-      >
-        {/* LEFT: Logo */}
-        <Link href="/" className="text-[22px] font-semibold text-[#111] tracking-tight">
-          DeusX
-        </Link>
-
-        {/* CENTER: Navigation Links (Desktop) */}
-        <div className="hidden md:flex items-center gap-6 lg:gap-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href="#"
-              className="group flex items-center gap-1 text-[15px] font-medium text-gray-700 hover:text-black transition-colors"
-            >
-              {link.name}
-              {link.hasDropdown && (
-                <ChevronDown size={14} className="text-gray-400 group-hover:text-black transition-transform duration-300 group-hover:rotate-180" />
-              )}
-            </Link>
-          ))}
-        </div>
-
-        {/* RIGHT: CTA & Hamburger */}
-        <div className="flex items-center gap-4">
-          <Link
-            href="#"
+    <>
+      <nav className="fixed inset-x-0 top-0 z-50">
+        <div className="px-4 md:px-6 pt-4">
+          <div
             className={cn(
-              "px-6 py-2.5 bg-[#0055FF] text-white text-sm font-medium rounded-full shadow-lg shadow-blue-200/50 hover:bg-[#0044CC] transition-all",
-              isScrolled ? "scale-95" : "scale-100"
+              "mx-auto flex items-center justify-between border transition-all duration-500 ease-out",
+              isScrolled
+                ? "max-w-7xl bg-white/88 backdrop-blur-xl border-slate-200 shadow-[0_10px_40px_rgba(15,23,42,0.06)]"
+                : "max-w-[90rem] bg-white/70 backdrop-blur-md border-slate-200/70",
+              "h-[72px] px-5 md:px-7"
             )}
           >
-            Book a Call
-          </Link>
+            {/* LEFT */}
+            <Link
+              href="/"
+              className="flex items-center gap-3 text-slate-950 hover:opacity-90 transition-opacity"
+            >
+              <div className="flex items-center gap-2">
+                <span className="block h-2.5 w-2.5 bg-blue-600" />
+                <span className="block h-px w-6 bg-slate-300" />
+              </div>
+              <div className="flex flex-col leading-none">
+                <span className="text-[20px] md:text-[22px] font-semibold tracking-tight">
+                  DeusX
+                </span>
+                <span className="hidden sm:block text-[10px] uppercase tracking-[0.24em] text-slate-400 font-mono mt-1">
+                  Engineering Systems
+                </span>
+              </div>
+            </Link>
 
-          {/* Hamburger Icon Animation */}
-          <button
-            className="md:hidden flex flex-col items-center justify-center w-8 h-8 gap-1.5 z-50"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            <span className={cn("w-6 h-0.5 bg-gray-900 rounded-full transition-all duration-300", isMobileMenuOpen && "rotate-45 translate-y-2")} />
-            <span className={cn("w-6 h-0.5 bg-gray-900 rounded-full transition-all duration-300", isMobileMenuOpen && "opacity-0")} />
-            <span className={cn("w-6 h-0.5 bg-gray-900 rounded-full transition-all duration-300", isMobileMenuOpen && "-rotate-45 -translate-y-2")} />
-          </button>
+            {/* CENTER */}
+            <div className="hidden md:flex items-center gap-7 lg:gap-9">
+              {navLinks.map((link, index) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="group relative flex items-center gap-1.5 text-[13px] lg:text-[14px] font-medium text-slate-600 hover:text-slate-950 transition-colors uppercase tracking-[0.08em]"
+                >
+                  <span>{link.name}</span>
+                  {link.hasDropdown && (
+                    <ChevronDown
+                      size={14}
+                      className="text-slate-400 group-hover:text-slate-950 transition-transform duration-300 group-hover:rotate-180"
+                    />
+                  )}
+
+                  <span className="absolute left-0 -bottom-2 h-px w-0 bg-blue-600 transition-all duration-300 group-hover:w-full" />
+                </Link>
+              ))}
+            </div>
+
+            {/* RIGHT */}
+            <div className="flex items-center gap-3">
+              <div className="hidden lg:flex items-center gap-3 pr-2">
+                <span className="h-2 w-2 bg-emerald-500 animate-pulse" />
+                <span className="text-[10px] uppercase tracking-[0.22em] text-slate-400 font-mono">
+                  Available for Select Projects
+                </span>
+              </div>
+
+              <Link
+                href="#"
+                className={cn(
+                  "hidden sm:inline-flex items-center gap-2 border text-slate-950 px-5 py-3 text-[13px] font-medium uppercase tracking-[0.08em] transition-all duration-300",
+                  isScrolled
+                    ? "border-slate-300 bg-white hover:border-blue-600 hover:text-blue-600"
+                    : "border-slate-300/80 bg-white/80 hover:border-blue-600 hover:text-blue-600"
+                )}
+              >
+                Book a Call
+                <ArrowUpRight size={15} />
+              </Link>
+
+              <button
+                type="button"
+                className="md:hidden relative flex h-10 w-10 items-center justify-center border border-slate-300 bg-white text-slate-950"
+                onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+                aria-label="Toggle mobile menu"
+              >
+                <span
+                  className={cn(
+                    "absolute h-[1.5px] w-5 bg-current transition-all duration-300",
+                    isMobileMenuOpen ? "rotate-45" : "-translate-y-[6px]"
+                  )}
+                />
+                <span
+                  className={cn(
+                    "absolute h-[1.5px] w-5 bg-current transition-all duration-300",
+                    isMobileMenuOpen ? "opacity-0" : "opacity-100"
+                  )}
+                />
+                <span
+                  className={cn(
+                    "absolute h-[1.5px] w-5 bg-current transition-all duration-300",
+                    isMobileMenuOpen ? "-rotate-45" : "translate-y-[6px]"
+                  )}
+                />
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
+      </nav>
 
-      {/* MOBILE MENU PANEL */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="absolute top-24 left-4 right-4 bg-white rounded-4xl shadow-2xl border border-gray-100 p-8 flex flex-col gap-6 md:hidden z-40"
-          >
-            {navLinks.map((link, i) => (
-              <motion.div
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: i * 0.05 }}
-                key={link.name}
-              >
-                <Link href="#" className="text-xl font-semibold text-gray-900 flex items-center justify-between">
-                  {link.name}
-                  {link.hasDropdown && <ChevronDown size={18} />}
+          <>
+            <motion.div
+              className="fixed inset-0 z-40 bg-slate-950/20 backdrop-blur-sm md:hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+
+            <motion.div
+              initial={{ opacity: 0, y: -16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -16 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="fixed top-[92px] left-4 right-4 z-50 border border-slate-200 bg-white shadow-[0_20px_60px_rgba(15,23,42,0.12)] md:hidden"
+            >
+              <div className="border-b border-slate-100 px-6 py-5">
+                <p className="text-[10px] uppercase tracking-[0.25em] text-slate-400 font-mono">
+                  Navigation
+                </p>
+              </div>
+
+              <div className="px-6 py-3">
+                {navLinks.map((link, i) => (
+                  <motion.div
+                    key={link.name}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.04 }}
+                    className="border-b border-slate-100 last:border-b-0"
+                  >
+                    <Link
+                      href={link.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="flex items-center justify-between py-5 text-[18px] font-medium text-slate-900 tracking-tight"
+                    >
+                      <span>{link.name}</span>
+                      {link.hasDropdown ? (
+                        <ChevronDown size={18} className="text-slate-400" />
+                      ) : (
+                        <ArrowUpRight size={18} className="text-slate-300" />
+                      )}
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="border-t border-slate-100 p-6">
+                <Link
+                  href="#"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="flex items-center justify-between border border-blue-600 bg-blue-600 px-5 py-4 text-white text-[14px] font-medium uppercase tracking-[0.08em]"
+                >
+                  <span>Book a Call</span>
+                  <ArrowUpRight size={16} />
                 </Link>
-              </motion.div>
-            ))}
-            <hr className="border-gray-100" />
-            <Link href="#" className="w-full py-4 bg-[#0055FF] text-white text-center rounded-2xl font-bold text-lg">
-              Book a Call
-            </Link>
-          </motion.div>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
-    </nav>
+    </>
   );
 }
