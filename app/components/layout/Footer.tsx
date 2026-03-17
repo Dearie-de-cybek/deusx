@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Twitter, Linkedin, Github, ArrowUpRight } from "lucide-react";
 
 const footerLinks = {
-  Product: ["Features", "Integrations", "Pricing", "Changelog"],
+  Product: ["Features", "Integrations",  "Changelog"],
   Company: ["About Us", "Careers", "Culture", "Contact"],
   Resources: ["Documentation", "Help Center", "Community", "Privacy"],
 };
