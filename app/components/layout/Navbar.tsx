@@ -8,7 +8,6 @@ import { cn } from "../../lib/utils";
 
 const navLinks = [
   { name: "Services", href: "/services", hasDropdown: false },
-  { name: "Features", href: "/features", hasDropdown: false },
   { name: "Company", href: "/company", hasDropdown: false },
   { name: "Projects", href: "/projects", hasDropdown: false },
   { name: "Help", href: "/help", hasDropdown: false },
