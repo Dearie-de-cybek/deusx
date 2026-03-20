@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "../../lib/utils";
 
 const navLinks = [
+  { name: "Home", href: "/", hasDropdown: false },
   { name: "Services", href: "/services", hasDropdown: false },
   { name: "Company", href: "/company", hasDropdown: false },
   { name: "Projects", href: "/projects", hasDropdown: false },
@@ -168,7 +169,7 @@ export default function Navbar() {
               </div>
 
               <div className="px-6 py-3">
-                {navLinks.map((link, i) => (
+                {navbar.map((link, i) => (
                   <motion.div
                     key={link.name}
                     initial={{ opacity: 0, x: -10 }}
