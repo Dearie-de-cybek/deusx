@@ -105,7 +105,7 @@ const SystemMapHero = () => (
         transition={{duration: 5, repeat: Infinity}}
         className="absolute top-[40%] left-[20%] text-blue-600 font-bold"
       >
-       {/* SYST_READY_V2 */}
+        {/* SYST_READY_V2 */}
       </motion.div>
       <motion.div
         animate={{y: [0, -30], opacity: [0, 1, 0]}}
@@ -350,16 +350,18 @@ export default function HomePage() {
               <SectionLabel text="The Standard" />
               <h2 className="text-5xl md:text-6xl font-medium tracking-tighter leading-tight mb-8">
                 If your business{" "}
-                <span className="text-blue-600 italic">matters</span>, <br/>
-                it deserves to <br/>be done properly.
+                <span className="text-blue-600 italic">matters</span>, <br />
+                it deserves to <br />
+                be done properly.
               </h2>
             </div>
             <div className="flex flex-col justify-end">
               <p className="text-xl text-slate-500 leading-relaxed mb-20">
                 We don’t believe in shortcuts or one-size-fits-all solutions. We
-                work closely with businesses,start-ups,companies to build software that’s reliable and 
-                scalable. Whether you’re fixing what’s not
-                working or building something new, DeusX is here to build.
+                work closely with businesses,start-ups,companies to build
+                software that’s reliable and scalable. Whether you’re fixing
+                what’s not working or building something new, DeusX is here to
+                build.
               </p>
               <div className="flex gap-12 font-mono text-[11px] font-bold text-slate-400">
                 <span className="flex items-center gap-2">
@@ -388,8 +390,15 @@ export default function HomePage() {
       ══════════════════════════════════════════════════════════════════════ */}
 
       {/* ── CAPABILITIES ── */}
-      <section className="py-40 bg-slate-50">
-        <div className="container mx-auto max-w-7xl px-6">
+      <section className="relative py-40  bg-slate-50">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute inset-0 bg-gradient-to-b from-blue-300 via-slate-300 to-slate-100/70" />
+          <div className="absolute inset-0 opacity-[0.14] bg-[radial-gradient(#dbe1ea_1px,transparent_1px)] [background-size:38px_38px]" />
+          <div className="absolute inset-0 opacity-[0.03] [background-image:linear-gradient(to_right,rgba(148,163,184,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.08)_1px,transparent_1px)] [background-size:120px_120px]" />
+          <div className="absolute -top-24 right-[-10%] h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(56,96,193,0.08)_0%,transparent_70%)] blur-3xl" />
+        </div>
+
+        <div className="container relative z-10 mx-auto max-w-7xl px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-20">
             <div className="lg:col-span-4 lg:sticky lg:top-40 h-fit">
               <SectionLabel text="Capabilities Matrix" />
@@ -634,7 +643,7 @@ export default function HomePage() {
                   className="text-slate-600 group-hover:text-blue-500 transition-colors mb-16"
                 />
                 <span className="text-[10px] font-mono text-slate-500 block mb-4 tracking-widest">
-                  {m.step} 
+                  {m.step}
                   {/* DISCOVERY */}
                 </span>
                 <h4 className="text-2xl font-medium mb-4">{m.title}</h4>
