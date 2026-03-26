@@ -495,7 +495,7 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* ── PROCESS: DESCRIPTIVE & VISUAL ── */}
+        ── PROCESS: DESCRIPTIVE & VISUAL ──
         <section className="py-40 bg-white">
           <div className="container px-6 mx-auto">
             <div className="text-center max-w-3xl mx-auto mb-24">

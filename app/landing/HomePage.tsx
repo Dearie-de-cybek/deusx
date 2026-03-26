@@ -134,7 +134,7 @@ const capabilities = [
           "Ledger systems, payment rails, and high-compliance architecture.",
       },
       {
-        title: "Modern Backends",
+        title: "Backend Development",
         details:
           "Distributed systems built for sub-second latency and infinite scale.",
       },
@@ -245,12 +245,12 @@ export default function HomePage() {
   const [solveReplayKey, setSolveReplayKey] = useState(0);
 
   useEffect(() => {
-  if (!solveInView) return;
+    if (!solveInView) return;
 
-  setSolveReplayKey((prev) => prev + 1);
+    setSolveReplayKey((prev) => prev + 1);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-}, [solveInView]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [solveInView]);
 
   return (
     <main className="bg-white selection:bg-blue-600 selection:text-white antialiased">
@@ -281,7 +281,7 @@ export default function HomePage() {
               style={{fontFamily: "var(--font-dm-serif), serif"}}
             >
               Building <br />
-              <span className="text-blue-600 italic font-light">
+              <span className="bg-gradient-to-r from-cyan-400 via-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent italic font-light">
                 Softwares
               </span>{" "}
               that Scale
@@ -366,7 +366,7 @@ export default function HomePage() {
               <SectionLabel text="The Standard" />
               <h2 className="text-5xl md:text-6xl font-medium tracking-tighter leading-tight mb-8">
                 If your business{" "}
-                <span className="text-blue-600 italic">matters</span>, <br />
+                <span className="bg-gradient-to-r from-teal-400 via-pink-500 to-orange-400 bg-clip-text text-transparent italic">matters</span>, <br />
                 it deserves to <br />
                 be done properly.
               </h2>
@@ -406,23 +406,51 @@ export default function HomePage() {
       ══════════════════════════════════════════════════════════════════════ */}
 
       {/* ── CAPABILITIES ── */}
-      <section className="relative py-40  bg-slate-50">
+      <section className="relative py-40 bg-slate-50">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-300 via-slate-300 to-slate-100/70" />
-          <div className="absolute inset-0 opacity-[0.14] bg-[radial-gradient(#dbe1ea_1px,transparent_1px)] [background-size:38px_38px]" />
+          {/* Primary cool gradient — bright cyan to indigo to purple */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(135deg, rgba(34,211,238,0.7) 0%, rgba(56,189,248,0.6) 15%, rgba(99,102,241,0.55) 35%, rgba(168,85,247,0.5) 55%, rgba(236,72,153,0.4) 75%, rgba(251,146,60,0.25) 100%)",
+            }}
+          />
+          {/* Bright teal and mint wash */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "radial-gradient(ellipse at 20% 30%, rgba(45,212,191,0.45) 0%, transparent 50%), radial-gradient(ellipse at 75% 70%, rgba(129,140,248,0.4) 0%, transparent 45%), radial-gradient(ellipse at 50% 20%, rgba(34,211,238,0.5) 0%, transparent 40%)",
+            }}
+          />
+          {/* Subtle warm accent pops — yellow-green and gold highlights */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "radial-gradient(ellipse at 85% 40%, rgba(163,230,53,0.2) 0%, transparent 35%), radial-gradient(ellipse at 60% 75%, rgba(250,204,21,0.15) 0%, transparent 30%), radial-gradient(ellipse at 10% 80%, rgba(249,115,22,0.12) 0%, transparent 35%)",
+            }}
+          />
+          {/* Dot pattern overlay */}
+          <div className="absolute inset-0 opacity-[0.12] bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:38px_38px]" />
+          {/* Grid lines overlay */}
           <div className="absolute inset-0 opacity-[0.03] [background-image:linear-gradient(to_right,rgba(148,163,184,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.08)_1px,transparent_1px)] [background-size:120px_120px]" />
-          <div className="absolute -top-24 right-[-10%] h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(56,96,193,0.08)_0%,transparent_70%)] blur-3xl" />
+          {/* Cool glow orbs */}
+          <div className="absolute -top-24 right-[-10%] h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(56,189,248,0.15)_0%,transparent_70%)] blur-3xl" />
+          <div className="absolute bottom-[-10%] left-[-5%] h-[380px] w-[380px] rounded-full bg-[radial-gradient(circle,rgba(168,85,247,0.12)_0%,transparent_70%)] blur-3xl" />
+          <div className="absolute top-[40%] left-[45%] h-[320px] w-[320px] rounded-full bg-[radial-gradient(circle,rgba(34,211,238,0.1)_0%,transparent_50%)] blur-3xl" />
         </div>
 
         <div className="container relative z-10 mx-auto max-w-7xl px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-20">
             <div className="lg:col-span-4 lg:sticky lg:top-40 h-fit">
               <SectionLabel text="Capabilities Matrix" />
-              <h2 className="text-5xl font-medium text-slate-900 mb-8 tracking-tight">
+              <h2 className="text-5xl font-medium text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.15)] mb-8 tracking-tight">
                 Explore <br />
                 Our Services
               </h2>
-              <p className="text-slate-500 text-lg leading-relaxed mb-10">
+              <p className="text-white/90 text-lg leading-relaxed mb-10">
                 We design and implement the mission-critical infrastructure that
                 allows businesses to scale with total architectural confidence.
               </p>
@@ -430,7 +458,7 @@ export default function HomePage() {
                 {capabilities.map((cap, idx) => (
                   <div
                     key={idx}
-                    className={`text-xs uppercase tracking-[0.3em] font-bold transition-all flex items-center gap-4 ${hoveredCapability === idx ? "text-blue-600" : "text-slate-500"}`}
+                    className={`text-xs uppercase tracking-[0.3em] font-bold transition-all flex items-center gap-4 ${hoveredCapability === idx ? "text-amber-200 " : "text-white/60"}`}
                   >
                     <span className="w-8 h-px bg-current" />
                     {`0${idx + 1} — ${cap.category}`}
@@ -533,7 +561,13 @@ export default function HomePage() {
               <SectionLabel text="Problem Space" />
               <h2 className="text-6xl font-medium tracking-tight mb-10 text-slate-900 leading-[1.1]">
                 We solve the{" "}
-                <span className="italic text-blue-600 font-light">
+                <span
+                  className="italic font-light bg-clip-text text-transparent"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(to right, #818cf8, #a855f7, #ec4899)",
+                  }}
+                >
                   software challenges
                 </span>{" "}
                 that come with growth.
@@ -546,7 +580,7 @@ export default function HomePage() {
                   },
                   {
                     q: "Security Risks",
-                    a: "Uncertainty whether your data and infromation are properly protected",
+                    a: "Uncertainty whether your data and information are properly protected",
                   },
                   {
                     q: "Performance Delays",
@@ -554,7 +588,13 @@ export default function HomePage() {
                   },
                 ].map((item, i) => (
                   <div key={i} className="flex gap-8">
-                    <span className="text-blue-600 font-mono text-lg font-bold">
+                    <span
+                      className="font-mono text-lg font-bold bg-clip-text text-transparent"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(to bottom, #22d3ee, #6366f1)",
+                      }}
+                    >
                       0{i + 1}.
                     </span>
                     <div>
@@ -673,7 +713,7 @@ export default function HomePage() {
                       </h3>
 
                       <p className="text-slate-400 text-base leading-relaxed max-w-md mb-6">
-                        Built to work well, scale well, and feel ready for real
+                        Built to work well, scale well and feel ready for real
                         use.
                       </p>
 
