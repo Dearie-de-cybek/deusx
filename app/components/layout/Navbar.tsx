@@ -160,7 +160,7 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -16 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
-              className="fixed top-[92px] left-4 right-4 z-50 border border-slate-200 bg-white shadow-[0_20px_60px_rgba(15,23,42,0.12)] md:hidden"
+              className="fixed top-23 left-4 right-4 z-50 border border-slate-200 bg-white shadow-[0_20px_60px_rgba(15,23,42,0.12)] md:hidden"
             >
               <div className="border-b border-slate-100 px-6 py-5">
                 <p className="text-[10px] uppercase tracking-[0.25em] text-slate-400 font-mono">
@@ -169,7 +169,7 @@ export default function Navbar() {
               </div>
 
               <div className="px-6 py-3">
-                {Navbar.map((link, i) => (
+                {navLinks.map((link, i) => (
                   <motion.div
                     key={link.name}
                     initial={{ opacity: 0, x: -10 }}
