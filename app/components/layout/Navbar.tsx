@@ -1,17 +1,18 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect} from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { ChevronDown, ArrowUpRight } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import { cn } from "../../lib/utils";
+import {ChevronDown, ArrowUpRight} from "lucide-react";
+import {motion, AnimatePresence} from "framer-motion";
+import {cn} from "../../lib/utils";
 
 const navLinks = [
-  { name: "Home", href: "/", hasDropdown: false },
-  { name: "Services", href: "/services", hasDropdown: false },
-  { name: "Company", href: "/company", hasDropdown: false },
-  { name: "Projects", href: "/projects", hasDropdown: false },
-  { name: "Help", href: "/help", hasDropdown: false },
+  {name: "Home", href: "/", hasDropdown: false},
+  {name: "Services", href: "/services", hasDropdown: false},
+  {name: "Company", href: "/company", hasDropdown: false},
+  {name: "Projects", href: "/projects", hasDropdown: false},
+  {name: "Contact", href: "/contact", hasDropdown: false},
 ];
 
 export default function Navbar() {
@@ -49,7 +50,7 @@ export default function Navbar() {
               isScrolled
                 ? "max-w-7xl bg-white/88 backdrop-blur-xl border-slate-200 shadow-[0_10px_40px_rgba(15,23,42,0.06)]"
                 : "max-w-[90rem] bg-white/70 backdrop-blur-md border-slate-200/70",
-              "h-[72px] px-5 md:px-7"
+              "h-[72px] px-5 md:px-7",
             )}
           >
             {/* LEFT */}
@@ -61,13 +62,15 @@ export default function Navbar() {
                 <span className="block h-2.5 w-2.5 bg-blue-600" />
                 <span className="block h-px w-6 bg-slate-300" />
               </div>
-              <div className="flex flex-col leading-none">
-                <span className="text-[20px] md:text-[22px] font-semibold tracking-tight">
-                  DeusX
-                </span>
-                <span className="hidden sm:block text-[10px] uppercase tracking-[0.24em] text-slate-400 font-mono mt-1">
-                  Engineering Systems
-                </span>
+              <div className="flex items-center gap-2 mb-4">
+                <Image
+                  src="/DeusXlogo.png"
+                  alt="Deusxlogo"
+                  width={90}
+                  height={60}
+                  className="object-contain"
+                  priority
+                />  
               </div>
             </Link>
 
@@ -107,7 +110,7 @@ export default function Navbar() {
                   "hidden sm:inline-flex items-center gap-2 border text-slate-950 px-5 py-3 text-[13px] font-medium uppercase tracking-[0.08em] transition-all duration-300",
                   isScrolled
                     ? "border-slate-300 bg-white hover:border-blue-600 hover:text-blue-600"
-                    : "border-slate-300/80 bg-white/80 hover:border-blue-600 hover:text-blue-600"
+                    : "border-slate-300/80 bg-white/80 hover:border-blue-600 hover:text-blue-600",
                 )}
               >
                 Book a Call
@@ -123,19 +126,19 @@ export default function Navbar() {
                 <span
                   className={cn(
                     "absolute h-[1.5px] w-5 bg-current transition-all duration-300",
-                    isMobileMenuOpen ? "rotate-45" : "-translate-y-[6px]"
+                    isMobileMenuOpen ? "rotate-45" : "-translate-y-6px",
                   )}
                 />
                 <span
                   className={cn(
                     "absolute h-[1.5px] w-5 bg-current transition-all duration-300",
-                    isMobileMenuOpen ? "opacity-0" : "opacity-100"
+                    isMobileMenuOpen ? "opacity-0" : "opacity-100",
                   )}
                 />
                 <span
                   className={cn(
                     "absolute h-[1.5px] w-5 bg-current transition-all duration-300",
-                    isMobileMenuOpen ? "-rotate-45" : "translate-y-[6px]"
+                    isMobileMenuOpen ? "-rotate-45" : "translate-y-6px",
                   )}
                 />
               </button>
@@ -149,17 +152,17 @@ export default function Navbar() {
           <>
             <motion.div
               className="fixed inset-0 z-40 bg-slate-950/20 backdrop-blur-sm md:hidden"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+              initial={{opacity: 0}}
+              animate={{opacity: 1}}
+              exit={{opacity: 0}}
               onClick={() => setIsMobileMenuOpen(false)}
             />
 
             <motion.div
-              initial={{ opacity: 0, y: -16 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -16 }}
-              transition={{ duration: 0.25, ease: "easeOut" }}
+              initial={{opacity: 0, y: -16}}
+              animate={{opacity: 1, y: 0}}
+              exit={{opacity: 0, y: -16}}
+              transition={{duration: 0.25, ease: "easeOut"}}
               className="fixed top-23 left-4 right-4 z-50 border border-slate-200 bg-white shadow-[0_20px_60px_rgba(15,23,42,0.12)] md:hidden"
             >
               <div className="border-b border-slate-100 px-6 py-5">
@@ -172,9 +175,9 @@ export default function Navbar() {
                 {navLinks.map((link, i) => (
                   <motion.div
                     key={link.name}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.04 }}
+                    initial={{opacity: 0, x: -10}}
+                    animate={{opacity: 1, x: 0}}
+                    transition={{delay: i * 0.04}}
                     className="border-b border-slate-100 last:border-b-0"
                   >
                     <Link

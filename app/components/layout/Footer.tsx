@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Twitter, Linkedin, Github, ArrowUpRight } from "lucide-react";
+import Image from "next/image";
+import { Twitter, Linkedin, Github, ArrowUpRight, Instagram } from "lucide-react";
 
 const footerLinks = {
   Product: ["Features", "Integrations",  "Changelog"],
@@ -16,13 +17,18 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="col-span-2">
             <Link href="/" className="text-2xl font-black tracking-tighter text-slate-900 uppercase mb-6 block">
-              Deus<span className="text-blue-600">X</span>
+             <Image
+             src="/DeusXlogo.png"
+             alt="Deusxlogo_footer"
+             width={120}
+            height={120}
+             />
             </Link>
             <p className="text-slate-500 max-w-xs mb-8 leading-relaxed">
               Engineering the digital systems that power the next generation of global industry leaders.
             </p>
             <div className="flex gap-4">
-              {[Twitter, Linkedin, Github].map((Icon, i) => (
+              {[Twitter, Instagram,Linkedin, Github].map((Icon, i) => (
                 <Link key={i} href="#" className="w-10 h-10 rounded-full border border-slate-100 flex items-center justify-center text-slate-400 hover:text-blue-600 hover:border-blue-100 transition-all">
                   <Icon size={18} />
                 </Link>
@@ -51,7 +57,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-12 border-t border-slate-50 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-slate-400 text-sm">
-            © 2026 DeusX Consulting Group. All rights reserved.
+            © 2026 DeusX Lab Limited. All rights reserved.
           </p>
           <div className="flex gap-8 text-sm font-medium text-slate-400">
             <Link href="#" className="hover:text-slate-900">Terms</Link>
