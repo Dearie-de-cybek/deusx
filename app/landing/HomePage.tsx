@@ -109,7 +109,7 @@ const SystemMapHero = () => (
         transition={{duration: 5, repeat: Infinity}}
         className="absolute top-[40%] left-[20%] text-blue-600 font-bold"
       >
-        SYST_READY_V2
+       {/* SYST_READY_V2 */}
       </motion.div>
       <motion.div
         animate={{y: [0, -30], opacity: [0, 1, 0]}}
@@ -121,6 +121,7 @@ const SystemMapHero = () => (
     </div>
   </div>
 );
+
 
 // ─── DATA ────────────────────────────────────────────────────────────────────
 
@@ -415,7 +416,7 @@ export default function HomePage() {
         {/* Dynamic Grid Background */}
         <div className="absolute inset-0 z-0 bg-[radial-gradient(#e5e7eb_1.5px,transparent_1.5px)] [background-size:40px_40px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_40%,#000_70%,transparent_100%)]" />
 
-        <div className="container relative z-10 px-6 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="container relative z-10 px-6 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center ">
           <div className="lg:col-span-7">
             <motion.div
               initial={{opacity: 0, x: -20}}
@@ -466,27 +467,33 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="lg:col-span-5 hidden lg:block h-full relative">
-            <div className="lg:col-span-5 hidden lg:block relative h-full min-h-[680px]">
-              <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute right-[-22%] top-[50%] h-[760px] w-[760px] -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(56,96,193,0.30)_0%,rgba(56,96,193,0.18)_28%,rgba(56,96,193,0.10)_48%,rgba(56,96,193,0.04)_64%,transparent_76%)] blur-3xl" />
+          <div className="flex lg:col-span-5 lg:block h-full overflow-hidden">
+  <div className="hidden lg:block relative h-full min-h-[680px] overflow-hidden">
+    <div className="absolute inset-0 pointer-events-none">
+      {/* Large radial background */}
+      <div className="absolute right-0 top-[50%] h-[760px] w-[760px] -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(56,96,193,0.30)_0%,rgba(56,96,193,0.18)_28%,rgba(56,96,193,0.10)_48%,rgba(56,96,193,0.04)_64%,transparent_76%)] blur-3xl" />
 
-                <div className="absolute inset-0 bg-[linear-gradient(125deg,transparent_38%,rgba(56,96,193,0.10)_58%,rgba(96,165,250,0.12)_68%,transparent_84%)]" />
+      {/* Linear gradient overlay */}
+      <div className="absolute inset-0 bg-[linear-gradient(125deg,transparent_38%,rgba(56,96,193,0.10)_58%,rgba(96,165,250,0.12)_68%,transparent_84%)]" />
 
-                <div className="absolute right-[2%] top-[10%] h-[320px] w-[320px] rounded-full bg-[radial-gradient(circle,rgba(96,165,250,0.16)_0%,rgba(96,165,250,0.07)_40%,transparent_74%)] blur-2xl" />
+      {/* Smaller radial */}
+      <div className="absolute right-[2%] top-[10%] h-[320px] w-[320px] rounded-full bg-[radial-gradient(circle,rgba(96,165,250,0.16)_0%,rgba(96,165,250,0.07)_40%,transparent_74%)] blur-2xl" />
 
-                <div className="absolute inset-y-0 left-[-6%] w-[42%] bg-gradient-to-r from-white via-white/65 to-transparent" />
+      {/* Left gradient overlay */}
+      <div className="absolute inset-y-0 left-0 w-[42%] bg-gradient-to-r from-white via-white/65 to-transparent" />
 
-                <div className="absolute bottom-[-10%] right-[-6%] h-[240px] w-[520px] bg-[radial-gradient(circle,rgba(56,96,193,0.12)_0%,transparent_72%)] blur-2xl" />
-              </div>
+      {/* Bottom-right radial */}
+      <div className="absolute bottom-[-10%] right-[-6%] h-[240px] w-[520px] bg-[radial-gradient(circle,rgba(56,96,193,0.12)_0%,transparent_72%)] blur-2xl" />
+    </div>
 
-              <div className="absolute inset-y-0 right-[-12%] w-[108%] flex items-center justify-center">
-                <div className="relative h-[700px] md:h-[750px] w-full">
-                  <SystemMapHero />
-                </div>
-              </div>
-            </div>
-          </div>
+    {/* SystemMapHero SVG */}
+    <div className="absolute inset-y-0 right-0 w-full flex items-center justify-center">
+      <div className="relative h-[700px] md:h-[750px] max-w-[750px] w-full mx-auto">
+        <SystemMapHero />
+      </div>
+    </div>
+  </div>
+</div>
         </div>
 
         {/* Hero Footer: Credibility Strip */}
@@ -910,6 +917,9 @@ export default function HomePage() {
       </section>
 
       {/* ── NEW: WHAT WE SOLVE ── */}
+      
+          
+      {/* ── NEW: WHAT WE SOLVE ── */}
       <section className="py-40 border-b border-slate-100">
         <div className="container px-6 mx-auto">
           <div className="grid lg:grid-cols-2 gap-24 items-center">
@@ -921,7 +931,7 @@ export default function HomePage() {
                   className="italic font-light bg-clip-text text-transparent"
                   style={{
                     backgroundImage:
-                      "linear-gradient(to right, #818cf8, #a855f7, #ec4899,#ff8a3d)",
+                      "linear-gradient(to right, #818cf8, #a855f7, #ec4899)",
                   }}
                 >
                   software challenges
@@ -966,28 +976,26 @@ export default function HomePage() {
               </div>
             </div>
             <div ref={solveSectionRef} className="relative">
-              <div className="aspect-square bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 p-12 relative border border-indigo-900/30 overflow-hidden">
-                {/* texture */}
+              <div className="aspect-square bg-slate-900 p-12 overflow-hidden relative border border-slate-800">
+                {/* subtle diagonal texture */}
                 <div className="absolute inset-0 opacity-20 pointer-events-none">
                   <div className="w-full h-full bg-[repeating-linear-gradient(45deg,transparent,transparent_20px,rgba(255,255,255,0.04)_20px,rgba(255,255,255,0.04)_40px)]" />
                 </div>
 
-                {/* glow */}
-                <div className="absolute -right-20 -bottom-20 h-72 w-72 rounded-full bg-purple-600/10 blur-3xl pointer-events-none" />
+                {/* soft blue glow */}
+                <div className="absolute -right-20 -bottom-20 h-72 w-72 rounded-full bg-blue-600/10 blur-3xl pointer-events-none" />
 
                 <div className="relative z-10 h-full flex flex-col justify-between">
-                  {/* icon */}
-                  {currentSlide.icon}
+                  <Terminal className="text-blue-500" size={40} />
 
                   <div className="grid h-full grid-rows-[1fr_auto] gap-8 pt-10">
-                    {/* ───────── CODE + IMAGE ───────── */}
+                    {/* animated code area */}
                     <div
-                      key={`${solveReplayKey}-${activeSlide}`}
-                      className="relative rounded-2xl border border-slate-800/80 bg-slate-950/60 p-6 overflow-visible"
+                      key={solveReplayKey}
+                      className="relative rounded-2xl border border-slate-800/80 bg-slate-950/55 p-6 overflow-hidden"
                     >
                       <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.02),transparent)] pointer-events-none" />
 
-                      {/* CODE */}
                       <div
                         className={`font-mono text-[13px] leading-7 text-slate-400 ${
                           solveInView
@@ -995,25 +1003,48 @@ export default function HomePage() {
                             : ""
                         }`}
                       >
-                        {currentSlide.codeLines.map((line, idx) => (
-                          <div
-                            key={idx}
-                            className={`${idx > 0 ? "mt-2" : ""} overflow-hidden whitespace-nowrap w-0 ${
-                              line.highlight ? "text-cyan-400" : ""
-                            } ${
-                              solveInView
-                                ? `animate-[typing${idx + 1}_${idx === 3 ? "0.8s" : "1.2s"}_steps(${line.steps},end)_${
-                                    [0, 1.4, 2.8, 4][idx]
-                                  }s_forwards]`
-                                : ""
-                            }`}
-                          >
-                            {line.text}
-                          </div>
-                        ))}
+                        <div
+                          className={`overflow-hidden whitespace-nowrap w-0 ${
+                            solveInView
+                              ? "animate-[typing1_1.2s_steps(29,end)_forwards]"
+                              : ""
+                          }`}
+                        >
+                          initializing product_engine...
+                        </div>
+
+                        <div
+                          className={`mt-2 overflow-hidden whitespace-nowrap w-0 ${
+                            solveInView
+                              ? "animate-[typing2_1.2s_steps(36,end)_1.4s_forwards]"
+                              : ""
+                          }`}
+                        >
+                          loading auth, payments, analytics...
+                        </div>
+
+                        <div
+                          className={`mt-2 overflow-hidden whitespace-nowrap w-0 ${
+                            solveInView
+                              ? "animate-[typing3_1s_steps(28,end)_2.8s_forwards]"
+                              : ""
+                          }`}
+                        >
+                          running deployment checks...
+                        </div>
+
+                        <div
+                          className={`mt-2 overflow-hidden whitespace-nowrap w-0 text-blue-400 ${
+                            solveInView
+                              ? "animate-[typing4_0.8s_steps(16,end)_4s_forwards]"
+                              : ""
+                          }`}
+                        >
+                          build complete ✓
+                        </div>
                       </div>
 
-                      {/* IMAGE REVEAL */}
+                      {/* real image reveal */}
                       <div
                         className={`pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 ${
                           solveInView
@@ -1022,13 +1053,12 @@ export default function HomePage() {
                         }`}
                       >
                         <div className="relative transform-gpu [perspective:1400px]">
-                          {/* glow behind image */}
-                          <div className="absolute inset-0 translate-x-6 translate-y-8 scale-90 rounded-[32px] bg-purple-500/20 blur-3xl" />
+                          <div className="absolute inset-0 translate-x-8 translate-y-10 scale-90 rounded-[32px] bg-blue-500/20 blur-3xl" />
 
                           <img
-                            src={currentSlide.image}
-                            alt={currentSlide.imageAlt}
-                            className={`relative z-10 w-[240px] md:w-[280px] drop-shadow-[0_30px_60px_rgba(0,0,0,0.45)] [transform:rotate(-4deg)_scale(0.95)] ${
+                            src="new_tablet.png"
+                            alt="Analytics dashboard preview"
+                            className={`relative z-10 w-[340px] md:w-[390px] drop-shadow-[0_30px_60px_rgba(0,0,0,0.45)] [transform:rotate(-5deg)_skewY(-1deg)_scale(0.96)] ${
                               solveInView
                                 ? "animate-[screenFloat_6s_ease-in-out_6s_infinite]"
                                 : ""
@@ -1036,63 +1066,28 @@ export default function HomePage() {
                           />
                         </div>
                       </div>
+                      
                     </div>
 
-                    {/* ───────── TEXT ───────── */}
-                    <div key={activeSlide}>
-                      <div className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent font-mono text-sm mb-4 tracking-tight">
-                        {currentSlide.tag}
+                    {/* text area */}
+                    <div>
+                      <div className="text-blue-500 font-mono text-sm mb-4 tracking-tight">
+                        #DEPLOYMENT_SEQUENCE
                       </div>
 
                       <h3 className="text-4xl text-white font-medium tracking-tight mb-4 max-w-xl">
-                        {currentSlide.title}
+                        We build software people can rely on.
                       </h3>
 
-                      <p className="text-slate-300 text-base leading-relaxed max-w-md mb-6">
-                        {currentSlide.description}
+                      <p className="text-slate-400 text-base leading-relaxed max-w-md mb-6">
+                        Built to work well, scale well and feel ready for real
+                        use.
                       </p>
 
-                      {/* CONTROLS */}
-                      <div className="flex items-center justify-between">
-                        {/* dots */}
-                        <div className="flex gap-2">
-                          {slides.map((_, i) => (
-                            <button
-                              key={i}
-                              onClick={() => setActiveSlide(i)}
-                              className={`h-1 rounded-full transition-all duration-300 ${
-                                i === activeSlide
-                                  ? "w-12 bg-gradient-to-r from-cyan-400 to-purple-500"
-                                  : "w-4 bg-slate-700"
-                              }`}
-                            />
-                          ))}
-                        </div>
-
-                        {/* arrows */}
-                        <div className="flex gap-3">
-                          <button
-                            onClick={() =>
-                              setActiveSlide((prev) =>
-                                prev === 0 ? slides.length - 1 : prev - 1,
-                              )
-                            }
-                            className="w-10 h-10 rounded-full border border-slate-700 flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-400/50 transition-colors"
-                          >
-                            <ChevronLeft size={18} />
-                          </button>
-
-                          <button
-                            onClick={() =>
-                              setActiveSlide((prev) =>
-                                prev === slides.length - 1 ? 0 : prev + 1,
-                              )
-                            }
-                            className="w-10 h-10 rounded-full border border-slate-700 flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-400/50 transition-colors"
-                          >
-                            <ChevronRight size={18} />
-                          </button>
-                        </div>
+                      <div className="flex gap-2">
+                        <div className="h-1 w-12 bg-blue-600" />
+                        <div className="h-1 w-4 bg-slate-700" />
+                        <div className="h-1 w-4 bg-slate-700" />
                       </div>
                     </div>
                   </div>
