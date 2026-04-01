@@ -138,7 +138,7 @@ export default function EngagementSection() {
           </div>
 
           {/* RIGHT: CONTACT FORM (GLASSMORPHISM) */}
-          <div className="lg:col-span-5 lg:sticky lg:top-32">
+          <div className="lg:col-span-5 lg:sticky lg:top-12">
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
