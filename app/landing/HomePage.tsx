@@ -1119,9 +1119,9 @@ export default function HomePage() {
               every line of code meets our standard of technical excellence.
             </p>
 
-            <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+            <div className="flex flex-row flex-wrap items-center justify-center gap-6">
               <Link href="/contact">
-                <button className="w-full md:w-auto bg-blue-600 text-white px-6 md:px-12 py-5 md:py-6 text-sm md:text-lg font-bold hover:bg-slate-900 transition-all active:scale-95 shadow-2xl shadow-blue-200 flex items-center justify-center gap-3 whitespace-nowrap">
+                <button className="bg-blue-600 text-white px-8 py-5 text-sm md:text-lg font-bold hover:bg-slate-900 transition-all active:scale-95 shadow-2xl shadow-blue-200 flex items-center justify-center gap-3 whitespace-nowrap">
                   Initialize Consultation
                   <ArrowUpRight size={16} />
                 </button>
