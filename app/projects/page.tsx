@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { 
   ArrowUpRight, 
   Cpu, 
@@ -103,7 +103,7 @@ const ProjectSection = ({ project, index }: { project: Project; index: number })
           style={{ scale, opacity }}
           className={`lg:col-span-7 relative ${isEven ? "lg:order-1" : "lg:order-2"}`}
         >
-          <div className="relative aspect-[16/10] overflow-hidden bg-slate-100 group">
+          <div className="relative aspect-16/10 overflow-hidden bg-slate-100 group">
             <motion.img 
               style={{ y: useTransform(scrollYProgress, [0, 1], [0, 100]) }}
               src={project.image} 
