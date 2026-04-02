@@ -1,28 +1,32 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Twitter, Linkedin, Github, ArrowUpRight, Instagram } from "lucide-react";
+import {Twitter, Linkedin, Github, ArrowUpRight, Instagram} from "lucide-react";
 
 const footerLinks = {
   Product: ["Features", "Integrations", "Changelog"],
   Company: [
-    { name: "About Us", href: "/about" },
-    { name: "Careers", href: "/careers" },
-    { name: "Culture", href: "/culture" },
-    { name: "Contact", href: "/contact" },
+    {name: "About Us", href: "/about"},
+    {name: "Careers", href: "/careers"},
+    {name: "Culture", href: "/culture"},
+    {name: "Contact", href: "/contact"},
   ],
   Resources: ["Documentation", "Help Center", "Community", "Privacy"],
 };
 
 export default function Footer() {
   return (
-    <footer className="relative pt-24 pb-12 border-t border-slate-50
-                       bg-gradient-to-tr from-pink-50 via-blue-50 via-purple-50 via-yellow-30">
+    <footer
+      className="relative pt-24 pb-12 border-t border-slate-50
+                       bg-gradient-to-tr from-pink-50 via-blue-50 via-purple-50 via-yellow-30"
+    >
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 mb-20">
-
           {/* Brand Column */}
           <div className="col-span-2">
-            <Link href="/" className="text-2xl font-black tracking-tighter text-slate-900 uppercase mb-6 block">
+            <Link
+              href="/"
+              className="text-2xl font-black tracking-tighter text-slate-900 uppercase mb-6 block"
+            >
               <Image
                 src="/DeusXlogo.png"
                 alt="Deusxlogo_footer"
@@ -31,7 +35,8 @@ export default function Footer() {
               />
             </Link>
             <p className="text-slate-500 max-w-xs mb-8 leading-relaxed">
-              Engineering the digital systems that power the next generation of global industry leaders.
+              Engineering the digital systems that power the next generation of
+              global industry leaders.
             </p>
             <div className="flex gap-4">
               {[Twitter, Instagram, Linkedin, Github].map((Icon, i) => (
@@ -49,27 +54,33 @@ export default function Footer() {
           {/* Links Columns */}
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
-              <h4 className="font-bold text-slate-900 mb-6 uppercase text-xs tracking-widest">{title}</h4>
+              <h4 className="font-bold text-slate-900 mb-6 uppercase text-xs tracking-widest">
+                {title}
+              </h4>
               <ul className="space-y-4">
                 {links.map((link) => (
                   <li key={typeof link === "string" ? link : link.name}>
-                    {title === "Company" ? (
+                    {typeof link === "object" ? (
                       <Link
                         href={link.href}
                         className="text-slate-500 hover:text-blue-600 transition-colors flex items-center group"
                       >
                         {link.name}
-                        <ArrowUpRight size={12} className="opacity-0 -translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all ml-1" />
+                        <ArrowUpRight
+                          size={12}
+                          className="opacity-0 -translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all ml-1"
+                        />
                       </Link>
                     ) : (
-                      <span className="text-slate-500 flex items-center">{link}</span>
+                      <span className="text-slate-500 flex items-center">
+                        {link}
+                      </span>
                     )}
                   </li>
                 ))}
               </ul>
             </div>
           ))}
-
         </div>
 
         {/* Bottom Bar */}
@@ -78,9 +89,15 @@ export default function Footer() {
             © 2026 DeusX Lab Limited. All rights reserved.
           </p>
           <div className="flex gap-8 text-sm font-medium text-slate-400">
-            <Link href="/terms" className="hover:text-slate-900">Terms</Link>
-            <Link href="/privacy" className="hover:text-slate-900">Privacy</Link>
-            <Link href="/cookies" className="hover:text-slate-900">Cookies</Link>
+            <Link href="/terms" className="hover:text-slate-900">
+              Terms
+            </Link>
+            <Link href="/privacy" className="hover:text-slate-900">
+              Privacy
+            </Link>
+            <Link href="/cookies" className="hover:text-slate-900">
+              Cookies
+            </Link>
           </div>
         </div>
       </div>
