@@ -17,7 +17,7 @@ export default function Footer() {
   return (
     <footer
       className="relative pt-24 pb-12 border-t border-slate-50
-                       bg-gradient-to-tr from-pink-50 via-blue-50 via-purple-50 via-yellow-30"
+                       bg-linear-to-tr from-pink-50 via-blue-50 to-purple-50 via-yellow-30"
     >
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 mb-20">

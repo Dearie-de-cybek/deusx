@@ -1,26 +1,13 @@
 "use client";
 
 import React, {useState} from "react";
-import {motion, AnimatePresence} from "framer-motion";
+import {motion} from "framer-motion";
 import {
   Send,
-  Layers,
-  Zap,
-  ShieldCheck,
-  ArrowRight,
-  Building2,
-  Rocket,
-  Crown,
-  Linkedin,
-  Instagram,
-  Github,
-  Twitter,
-  X,
-  Facebook,
+  ShieldCheck
 } from "lucide-react";
 import Footer from "../components/layout/Footer";
 import Navbar from "../components/layout/Navbar";
-import Link from "next/link";
 
 // ─── DATA: VALUE TIERS (PRICING TEASE) ──────────────────────────────────────
 
@@ -29,7 +16,7 @@ import Link from "next/link";
 // ─── MAIN SECTION ───────────────────────────────────────────────────────────
 
 export default function EngagementSection() {
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [] = useState(false);
 
   return (
     <>
@@ -37,8 +24,8 @@ export default function EngagementSection() {
         <Navbar />
         {/* Ambient Background Elements */}
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-          <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-blue-50 rounded-full blur-[120px] opacity-50" />
-          <div className="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-slate-100 rounded-full blur-[100px] opacity-60" />
+          <div className="absolute top-[-10%] right-[-5%] w-150 h-150 bg-blue-50 rounded-full blur-[120px] opacity-50" />
+          <div className="absolute bottom-[-10%] left-[-5%] w-125 h-125 bg-slate-100 rounded-full blur-[100px] opacity-60" />
         </div>
 
         <div className="container relative z-10 px-6 mx-auto">

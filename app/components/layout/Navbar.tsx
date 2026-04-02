@@ -49,8 +49,8 @@ export default function Navbar() {
               "mx-auto flex items-center justify-between border transition-all duration-500 ease-out",
               isScrolled
                 ? "max-w-7xl bg-white/88 backdrop-blur-xl border-slate-200 shadow-[0_10px_40px_rgba(15,23,42,0.06)]"
-                : "max-w-[90rem] bg-white/70 backdrop-blur-md border-slate-200/70",
-              "h-[72px] px-5 md:px-7",
+                : "max-w-360 bg-white/70 backdrop-blur-md border-slate-200/70",
+              "h-18 px-5 md:px-7",
             )}
           >
             {/* LEFT */}
@@ -76,7 +76,7 @@ export default function Navbar() {
 
             {/* CENTER */}
             <div className="hidden md:flex items-center gap-7 lg:gap-9">
-              {navLinks.map((link, index) => (
+              {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
