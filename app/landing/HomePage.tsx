@@ -331,13 +331,13 @@ export default function HomePage() {
   }, [isInView]);
 
   return (
-    <main className="bg-white selection:bg-blue-600 selection:text-white antialiased">
+    <main className="bg-white selection:bg-blue-600 selection:text-white antialiased overflow-x-hidden">
       {/* ══════════════════════════════════════════════════════════════════════
           HERO: THE ARCHITECTURAL OPENING
       ══════════════════════════════════════════════════════════════════════ */}
       <section className="relative min-h-screen flex flex-col justify-center pt-24 pb-16 border-b border-slate-100 overflow-hidden">
         {/* Dynamic Grid Background */}
-        <div className="absolute inset-0 z-0 bg-[radial-gradient(#e5e7eb_1.5px,transparent_1.5px)] [background-size:40px_40px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_40%,#000_70%,transparent_100%)]" />
+        <div className="absolute inset-0 z-0 bg-[radial-gradient(#e5e7eb_1.5px,transparent_1.5px)] bg-size-[40px_40px] mask-[radial-gradient(ellipse_60%_60%_at_50%_40%,#000_70%,transparent_100%)]" />
 
         <div className="container relative z-10 px-6 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center ">
           <div className="lg:col-span-7">
@@ -1120,14 +1120,14 @@ export default function HomePage() {
             </p>
 
             <div className="flex flex-row flex-wrap items-center justify-center gap-6">
-              <Link href="/contact">
-                <button className="bg-blue-600 text-white px-8 py-5 text-sm md:text-lg font-bold hover:bg-slate-900 transition-all active:scale-95 shadow-2xl shadow-blue-200 flex items-center justify-center gap-3 whitespace-nowrap">
+              <Link href="/contact" >
+                <button className="bg-blue-600 text-white px-8 py-5 text-sm font-bold hover:bg-slate-900 transition-all active:scale-95 shadow-2xl shadow-blue-200 inline-flex items-center justify-center gap-3 whitespace-nowrap">
                   Initialize Consultation
                   <ArrowUpRight size={16} />
                 </button>
               </Link>
-              <div className="text-[10px] font-mono text-slate-400 uppercase tracking-[0.4em] md:text-left">
-                Average Response: &lt; 24 Hours <br />
+              <div className="text-[10px] font-mono text-slate-400 uppercase tracking-[0.4em] text-center md:text-left">
+                Average Response: &lt; 24 Hours
               </div>
             </div>
           </motion.div>

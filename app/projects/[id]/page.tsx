@@ -441,7 +441,7 @@ export default function CaseStudyPage() {
               grid-cols-1 gap-4
               md:grid-cols-3
               md:gap-5
-              md:[grid-template-rows:380px_380px]
+              md:grid-rows-[380px_380px]
             "
           >
             {/* ── WIDE (row 1, cols 1-2) ── */}
